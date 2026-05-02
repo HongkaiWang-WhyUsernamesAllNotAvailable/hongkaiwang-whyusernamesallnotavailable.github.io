@@ -1,11 +1,501 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hongkai Wang — PhD Student in Economics at The University of Texas at Austin." />
   <title>Hongkai Wang</title>
+  <style>
+    :root {
+      --ut-orange: #bf5700;
+      --ut-orange-dark: #a84600;
+      --text: #111111;
+      --muted: #555555;
+      --line: #eeeeee;
+      --footer: #f3f3f3;
+      --content-width: 1000px;
+      --left-margin: 92px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: #ffffff;
+      font-size: 16px;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--ut-orange-dark);
+      text-decoration: underline;
+    }
+
+    .site-header {
+      border-bottom: 1px solid var(--line);
+      background: #ffffff;
+    }
+
+    .header-inner {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 44px 20px 30px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      column-gap: 80px;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ut-orange);
+      text-decoration: none;
+      line-height: 1;
+    }
+
+    .shield {
+      width: 34px;
+      height: 34px;
+      border: 2px solid var(--ut-orange);
+      border-radius: 4px 4px 12px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: -1px;
+    }
+
+    .brand-word {
+      font-size: 42px;
+      font-weight: bold;
+      letter-spacing: -1px;
+    }
+
+    .brand-subtitle {
+      display: block;
+      font-size: 9px;
+      color: var(--ut-orange);
+      margin-top: -2px;
+      letter-spacing: 0;
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 38px;
+      align-items: center;
+    }
+
+    .nav button {
+      height: 36px;
+      border: 1px solid var(--ut-orange);
+      background: #ffffff;
+      color: var(--ut-orange);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .nav button.active,
+    .nav button:hover {
+      background: var(--ut-orange);
+      color: #ffffff;
+    }
+
+    .page {
+      display: none;
+      flex: 1;
+      min-height: calc(100vh - 210px);
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .page-inner {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 42px 20px 110px;
+    }
+
+    .narrow-content {
+      margin-left: var(--left-margin);
+      max-width: 520px;
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: 25px;
+      line-height: 1.15;
+      margin-bottom: 4px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .home-title strong {
+      display: block;
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    .profile-photo {
+      width: 340px;
+      height: auto;
+      display: block;
+      margin: 18px 0 14px;
+    }
+
+    .photo-placeholder {
+      width: 340px;
+      height: 320px;
+      margin: 18px 0 14px;
+      border: 1px solid #ddd;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    .section-title {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 26px;
+      margin-bottom: 2px;
+    }
+
+    .contact-block p,
+    .address-block p {
+      margin: 0;
+      line-height: 1.42;
+    }
+
+    .research-empty {
+      min-height: 650px;
+    }
+
+    .teaching-list {
+      margin-left: var(--left-margin);
+      max-width: 760px;
+    }
+
+    .course-link {
+      color: var(--ut-orange-dark);
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .course-link:hover {
+      text-decoration: underline;
+    }
+
+    .course-page-header {
+      display: grid;
+      grid-template-columns: 1fr 250px;
+      align-items: start;
+      gap: 30px;
+      margin-left: var(--left-margin);
+      margin-right: 60px;
+      padding-bottom: 30px;
+    }
+
+    .back-button {
+      height: 34px;
+      border: none;
+      background: var(--ut-orange);
+      color: #ffffff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .divider-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .handout-row {
+      height: 88px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      padding-left: var(--left-margin);
+    }
+
+    .other-item {
+      border-bottom: 1px solid var(--line);
+      padding: 34px 0 34px;
+    }
+
+    .other-content {
+      margin-left: 64px;
+      max-width: 620px;
+    }
+
+    .other-content h2 {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .travel-photo {
+      width: 540px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .travel-placeholder {
+      width: 540px;
+      height: 250px;
+      max-width: 100%;
+      border: 1px solid #ddd;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    footer {
+      margin-top: auto;
+      border-top: 1px solid var(--line);
+      background: var(--footer);
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 820px) {
+      .header-inner {
+        grid-template-columns: 1fr;
+        row-gap: 24px;
+        padding-top: 28px;
+      }
+
+      .nav {
+        gap: 10px;
+      }
+
+      .narrow-content,
+      .teaching-list,
+      .course-page-header,
+      .handout-row,
+      .other-content {
+        margin-left: 0;
+      }
+
+      .course-page-header {
+        grid-template-columns: 1fr;
+        margin-right: 0;
+      }
+
+      .profile-photo,
+      .photo-placeholder {
+        width: 100%;
+        max-width: 340px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .brand-word {
+        font-size: 34px;
+      }
+
+      .nav {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .page-inner {
+        padding-top: 28px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hongkai Wang</h1>
-  <p>PhD student in Economics at the University of Texas at Austin.</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#home" data-page-link="home" aria-label="Home">
+        <span class="shield">UT</span>
+        <span>
+          <span class="brand-word">TEXAS</span>
+          <span class="brand-subtitle">The University of Texas at Austin</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <button type="button" data-page-link="home" class="active">Home</button>
+        <button type="button" data-page-link="research">Research</button>
+        <button type="button" data-page-link="teaching">Teaching</button>
+        <button type="button" data-page-link="other">Other</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <div class="page-inner">
+        <div class="narrow-content">
+          <div class="home-title">
+            <h1>Hongkai Wang</h1>
+            <strong>PhD Student in Economics</strong>
+            <strong>The University of Texas at Austin</strong>
+          </div>
+
+          <!-- Upload your image to images/profile.jpg, or replace this block with: <img class="profile-photo" src="images/profile.jpg" alt="Hongkai Wang" /> -->
+          <div class="photo-placeholder">Upload your homepage photo as<br><strong>images/profile.jpg</strong><br>then replace this box with an image tag.</div>
+
+          <p><a href="cv.pdf"><strong>Vitae</strong></a></p>
+
+          <div class="contact-block">
+            <p class="section-title">Contact Information</p>
+            <p>Office: BRB 2.124</p>
+            <p>E-mail: hkwang[(at)]utexas[dot]edu</p>
+            <p>Telephone: (608)-770-8189</p>
+          </div>
+
+          <div class="address-block">
+            <p class="section-title">Mailing Address</p>
+            <p>Department of Economics</p>
+            <p>The University of Texas at Austin</p>
+            <p>2225 Speedway, BRB 2.124</p>
+            <p>Austin, Texas 78712</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="page">
+      <div class="page-inner research-empty">
+        <div class="narrow-content">
+          <!-- Add research content here later. -->
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching" class="page">
+      <div class="page-inner research-empty">
+        <div class="teaching-list">
+          <p>
+            <button type="button" class="course-link" data-page-link="econ329">Fall 2022 Econ 329 Economic Statistics</button>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="econ329" class="page">
+      <div class="page-inner">
+        <div class="course-page-header">
+          <div>
+            <h2>Econ 329 Economic Statistics</h2>
+            <p>As Teaching Assistant</p>
+          </div>
+          <button type="button" class="back-button" data-page-link="teaching">Back to Teaching</button>
+        </div>
+
+        <div class="divider-list">
+          <div class="handout-row"><a href="handouts/handout1.pdf">Handout 1</a></div>
+          <div class="handout-row"><a href="handouts/handout2.pdf">Handout 2</a></div>
+          <div class="handout-row"><a href="handouts/handout3.pdf">Handout 3</a></div>
+          <div class="handout-row"><a href="handouts/handout4.pdf">Handout 4</a></div>
+          <div class="handout-row"><a href="handouts/handout5.pdf">Handout 5</a></div>
+          <div class="handout-row"><a href="handouts/handout6.pdf">Handout 6</a></div>
+          <div class="handout-row"><a href="handouts/handout7.pdf">Handout 7</a></div>
+          <div class="handout-row"><a href="handouts/handout8.pdf">Handout 8</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="other" class="page">
+      <div class="page-inner" style="padding-top: 0;">
+        <div class="other-item">
+          <div class="other-content">
+            <h2>Primorsk</h2>
+            <div class="travel-placeholder">Upload image as <strong>images/primorsk.jpg</strong></div>
+            <!-- Replace placeholder with: <img class="travel-photo" src="images/primorsk.jpg" alt="Primorsk" /> -->
+          </div>
+        </div>
+
+        <div class="other-item">
+          <div class="other-content">
+            <h2>Shenzhen</h2>
+            <div class="travel-placeholder">Upload image as <strong>images/shenzhen.jpg</strong></div>
+            <!-- Replace placeholder with: <img class="travel-photo" src="images/shenzhen.jpg" alt="Shenzhen" /> -->
+          </div>
+        </div>
+
+        <div class="other-item">
+          <div class="other-content">
+            <h2>Madison</h2>
+            <div class="travel-placeholder">Upload image as <strong>images/madison.jpg</strong></div>
+            <!-- Replace placeholder with: <img class="travel-photo" src="images/madison.jpg" alt="Madison" /> -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Hongkai Wang
+  </footer>
+
+  <script>
+    const pages = document.querySelectorAll(".page");
+    const navButtons = document.querySelectorAll("[data-page-link]");
+
+    function showPage(pageId) {
+      pages.forEach(page => page.classList.toggle("active", page.id === pageId));
+      navButtons.forEach(button => {
+        const isTopNav = button.closest(".nav");
+        if (isTopNav) {
+          button.classList.toggle("active", button.dataset.pageLink === pageId);
+        }
+      });
+      window.location.hash = pageId;
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+
+    navButtons.forEach(button => {
+      button.addEventListener("click", event => {
+        event.preventDefault();
+        showPage(button.dataset.pageLink);
+      });
+    });
+
+    const initialPage = window.location.hash.replace("#", "") || "home";
+    if (document.getElementById(initialPage)) {
+      showPage(initialPage);
+    }
+  </script>
 </body>
 </html>
