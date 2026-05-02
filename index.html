@@ -64,31 +64,10 @@
       line-height: 1;
     }
 
-    .shield {
-      width: 34px;
-      height: 34px;
-      border: 2px solid var(--ut-orange);
-      border-radius: 4px 4px 12px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: bold;
-      letter-spacing: -1px;
-    }
-
-    .brand-word {
-      font-size: 42px;
-      font-weight: bold;
-      letter-spacing: -1px;
-    }
-
-    .brand-subtitle {
+    .ut-logo {
+      width: 180px;
+      height: auto;
       display: block;
-      font-size: 9px;
-      color: var(--ut-orange);
-      margin-top: -2px;
-      letter-spacing: 0;
     }
 
     .nav {
@@ -328,8 +307,8 @@
     }
 
     @media (max-width: 560px) {
-      .brand-word {
-        font-size: 34px;
+      .ut-logo {
+        width: 150px;
       }
 
       .nav {
@@ -346,11 +325,7 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="#home" data-page-link="home" aria-label="Home">
-        <span class="shield">UT</span>
-        <span>
-          <span class="brand-word">TEXAS</span>
-          <span class="brand-subtitle">The University of Texas at Austin</span>
-        </span>
+        <img class="ut-logo" src="images/UT.png" alt="The University of Texas at Austin" />
       </a>
 
       <nav class="nav" aria-label="Main navigation">
