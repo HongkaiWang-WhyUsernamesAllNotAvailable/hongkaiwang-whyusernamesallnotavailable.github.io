@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Hongkai Wang" />
+  <meta name="description" content="Hongkai Wang — PhD Student in Economics at The University of Texas at Austin." />
   <title>Hongkai Wang</title>
   <style>
     :root {
@@ -122,7 +122,7 @@
     h1 {
       font-size: 25px;
       line-height: 1.15;
-      margin-bottom: 4px;
+      margin-bottom: 14px;
     }
 
     h2 {
@@ -137,7 +137,7 @@
 
     .home-title strong {
       display: block;
-      font-size: 17px;
+      font-size: 21px;
       line-height: 1.35;
     }
 
@@ -165,7 +165,7 @@
 
     .section-title {
       font-weight: bold;
-      font-size: 18px;
+      font-size: 21px;
       margin-top: 26px;
       margin-bottom: 2px;
     }
@@ -174,6 +174,39 @@
     .address-block p {
       margin: 0;
       line-height: 1.42;
+    }
+
+    .address-block {
+      margin-top: 26px;
+    }
+
+    .research-content {
+      max-width: 820px;
+    }
+
+    .research-content h2 {
+      font-size: 25px;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    .research-list p {
+      margin: 0 0 14px;
+      line-height: 1.42;
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .research-list .coauthor {
+      font-weight: normal;
+      font-size: 16px;
+    }
+
+    .research-list .abstract {
+      margin: 4px 0 34px;
+      line-height: 1.42;
+      font-size: 16px;
+      font-weight: normal;
     }
 
     .research-empty {
@@ -185,14 +218,25 @@
       max-width: 760px;
     }
 
+    .teaching-list h2 {
+      font-size: 25px;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
     .course-link {
       color: var(--ut-orange-dark);
       font-weight: bold;
       text-decoration: none;
       cursor: pointer;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 21px;
+      line-height: 1.42;
+      display: inline;
     }
 
     .course-link:hover {
+      color: var(--ut-orange-dark);
       text-decoration: underline;
     }
 
@@ -356,8 +400,7 @@
             <p>Office: BRB 2.124</p>
             <p>E-mail: hkwang[(a't)]utexas[d0t]edu</p>
             <p>Telephone: (608)-770-8189</p>
-          </div></div></div></div>
-          
+          </div>
 
           <div class="address-block">
             <p class="section-title">Mailing Address</p>
@@ -372,8 +415,20 @@
 
     <section id="research" class="page">
       <div class="page-inner research-empty">
-        <div class="narrow-content">
-          <!-- Add research content here later. -->
+        <div class="narrow-content research-content">
+          <h2>Working Papers</h2>
+
+          <div class="research-list">
+            <p>Identification and Estimation with Monotone Treatment Selection<br />
+            <span class="coauthor">with <a href="https://sites.google.com/site/xuhaiqing100" target="_blank" rel="noopener noreferrer">Haiqing Xu</a></span></p>
+            <p class="abstract"><strong>Abstract:</strong> TBA</p>
+
+            <p>Inventory-Based Dynamic Pricing: An Application to the Training-Class Industry</p>
+
+            <p>The Effects of Price Limits on Stock Markets</p>
+
+            <p>Regression Quantiles: Causal Effects and Monotonicity Effects</p>
+          </div>
         </div>
       </div>
     </section>
@@ -381,8 +436,9 @@
     <section id="teaching" class="page">
       <div class="page-inner research-empty">
         <div class="teaching-list">
+          <h2>As Teaching Assistant</h2>
           <p>
-            <button type="button" class="course-link" data-page-link="econ329">Fall 2022 Econ 329 Economic Statistics</button>
+            <a href="#econ329" class="course-link" data-page-link="econ329">Fall 2022 Econ 329 Economic Statistics</a>
           </p>
         </div>
       </div>
